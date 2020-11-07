@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+
+includeBuild("buildSrc2")
+rootProject.name = "DotaClub"
+
+
+include (
+        ":app",
+        ":network:dota-engine-contract",
+        ":network:dota-engine-di",
+        ":network:dota-engine-impl"
+)
+
