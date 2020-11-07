@@ -1,4 +1,4 @@
-import com.gradle.karthyks.Versions
+import com.gradle.karthyks.Libraries
 
 plugins {
     id("java-library")
@@ -7,7 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}")
+    implementation(Libraries.kotlin)
     implementation(Libraries.coroutines)
 }
 java {

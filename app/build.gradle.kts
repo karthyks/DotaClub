@@ -1,5 +1,6 @@
-import com.gradle.karthyks.Versions.Android
+import com.gradle.karthyks.Libraries
 import com.gradle.karthyks.Versions
+import com.gradle.karthyks.Versions.Android
 
 plugins {
     id("com.android.application")
@@ -13,10 +14,10 @@ android {
 
     defaultConfig {
         applicationId = Android.applicationId
-        minSdkVersion(23)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(Android.minSdkVersion)
+        targetSdkVersion(Android.targetSdkVersion)
+        versionCode = Android.versionCode
+        versionName = Android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,28 +36,28 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Versions.jvmTarget
         useIR = true
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Android.composeVersion
+        kotlinCompilerExtensionVersion = Android.composeVersion
         kotlinCompilerVersion = Versions.kotlinVersion
     }
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}")
-    implementation("androidx.core:core-ktx:${Android.kotlinCore}")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.2.1")
-    implementation("androidx.compose.ui:ui:${Android.composeVersion}")
-    implementation("androidx.compose.material:material:${Android.composeVersion}")
-    implementation("androidx.ui:ui-tooling:${Android.composeVersion}")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-beta01")
-    testImplementation("junit:junit:4.13.1")
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
+    implementation(Libraries.kotlin)
+    implementation(Libraries.Android.kotlinCore)
+    implementation(Libraries.Android.appCompat)
+    implementation(Libraries.Android.materialDesign)
+    implementation(Libraries.Android.composeUI)
+    implementation(Libraries.Android.composeMaterialUI)
+    implementation(Libraries.Android.composeUiTooling)
+    implementation(Libraries.Android.lifeCycleRuntime)
+    testImplementation(Libraries.Test.jUnit)
+    androidTestImplementation(Libraries.Test.AndroidX.jUnit)
+    androidTestImplementation(Libraries.Test.AndroidX.espressoCore)
 }
