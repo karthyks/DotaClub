@@ -29,10 +29,11 @@ object Versions {
         const val kotlinCore = "1.3.1"
         const val appCompat = "1.2.0"
         const val material = "1.2.1"
+        const val lifeCycleRuntime = "2.3.0-beta01"
     }
 
     object Test {
-        const val junit = "4.13"
+        const val junit = "4.13.1"
 
         object AndroidX {
             const val junit = "1.1.2"
@@ -42,7 +43,26 @@ object Versions {
 }
 
 object Libraries {
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
-    val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-    val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    object Android {
+        const val kotlinCore = "androidx.core:core-ktx:${Versions.Android.kotlinCore}"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        const val appCompat = "androidx.appcompat:appcompat:${Versions.Android.appCompat}"
+        const val materialDesign = "com.google.android.material:material:${Versions.Android.material}"
+        const val composeUI = "androidx.compose.ui:ui:${Versions.Android.composeVersion}"
+        const val composeMaterialUI = "androidx.compose.material:material:${Versions.Android.composeVersion}"
+        const val composeUiTooling = "androidx.ui:ui-tooling:${Versions.Android.composeVersion}"
+        const val lifeCycleRuntime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Android.lifeCycleRuntime}"
+    }
+
+    object Test {
+        const val jUnit = "junit:junit:${Versions.Test.junit}"
+
+        object AndroidX {
+            const val jUnit = "androidx.test.ext:junit:${Versions.Test.AndroidX.junit}"
+            const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.Test.AndroidX.espressoCore}"
+        }
+    }
 }
