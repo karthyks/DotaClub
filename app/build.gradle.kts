@@ -6,11 +6,10 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
-    id("class-loader-plugin")
-}
+    id("class-loader-plugin") }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Android.compileSdkVersion)
 
     defaultConfig {
         applicationId = Android.applicationId
@@ -55,6 +54,8 @@ dependencies {
     implementation(Libraries.Android.materialDesign)
     implementation(Libraries.Android.composeUI)
     implementation(Libraries.Android.composeMaterialUI)
+    implementation(Libraries.Android.hilt)
+    implementation(Libraries.Android.hiltKapt)
     implementation(Libraries.Android.composeUiTooling)
     implementation(Libraries.Android.lifeCycleRuntime)
     testImplementation(Libraries.Test.jUnit)
