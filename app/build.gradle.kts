@@ -7,10 +7,13 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     id("class-loader-plugin")
+    id("project-report")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Android.compileSdkVersion)
 
     defaultConfig {
         applicationId = Android.applicationId
@@ -20,6 +23,12 @@ android {
         versionName = Android.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["room.incremental"] = "true"
+            }
+        }
     }
 
     buildTypes {
@@ -46,6 +55,11 @@ android {
         kotlinCompilerExtensionVersion = Android.composeVersion
         kotlinCompilerVersion = Versions.kotlinVersion
     }
+
+    packagingOptions {
+        exclude("META-INF/LICENSE")
+//        exclude("META-INF/gradle/incremental.annotation.processors")
+    }
 }
 
 dependencies {
@@ -55,6 +69,8 @@ dependencies {
     implementation(Libraries.Android.materialDesign)
     implementation(Libraries.Android.composeUI)
     implementation(Libraries.Android.composeMaterialUI)
+    implementation(Libraries.Android.hilt)
+    kapt(Libraries.Android.hiltKapt)
     implementation(Libraries.Android.composeUiTooling)
     implementation(Libraries.Android.lifeCycleRuntime)
     testImplementation(Libraries.Test.jUnit)
