@@ -10,9 +10,9 @@ class ClassLoaderPlugin : Plugin<Project> {
 
 object Versions {
     const val androidGradle = "4.2.0-alpha16"
-    const val kotlinVersion = "1.4.10"
+    const val kotlinVersion = "1.4.20"
     const val jvmTarget = "1.8"
-    const val coroutines = "1.3.9"
+    const val coroutines = "1.4.1"
 
     object Android {
         const val applicationId = "com.github.karthyks.dotaclub"
