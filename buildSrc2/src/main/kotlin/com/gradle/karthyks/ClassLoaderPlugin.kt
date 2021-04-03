@@ -9,9 +9,9 @@ class ClassLoaderPlugin : Plugin<Project> {
 }
 
 object Versions {
-    const val androidGradle = "4.2.0-beta04"
-    const val kotlinVersion = "1.4.30"
-    const val jvmTarget = "1.8"
+    const val androidGradle = "4.2.0-beta06"
+    const val kotlinVersion = "1.4.31"
+    const val jvmTarget = "11"
     const val coroutines = "1.4.1"
 
     object Android {
@@ -24,14 +24,14 @@ object Versions {
         const val versionCode = 1
         const val versionName = "1.0.0"
 
-        const val composeVersion = "1.0.0-beta01"
-        const val activityCompose = "1.3.0-alpha03"
+        const val composeVersion = "1.0.0-beta03"
+        const val activityCompose = "1.3.0-alpha05"
 
         const val kotlinCore = "1.3.2"
         const val appCompat = "1.2.0"
         const val material = "1.2.1"
         const val lifeCycleRuntime = "2.3.0-beta01"
-        const val hilt = "2.32-alpha"
+        const val hilt = "2.33-beta"
     }
 
     object Test {

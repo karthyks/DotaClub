@@ -5,7 +5,6 @@ import com.gradle.karthyks.Versions.Android
 plugins {
     id("com.android.application")
     kotlin("android")
-    kotlin("android.extensions")
     id("class-loader-plugin")
     id("project-report")
     id("kotlin-kapt")
@@ -14,6 +13,7 @@ plugins {
 
 android {
     compileSdkVersion(Android.compileSdkVersion)
+    buildToolsVersion(Android.buildToolsVersion)
 
     defaultConfig {
         applicationId = Android.applicationId
@@ -41,8 +41,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = Versions.jvmTarget
@@ -50,15 +50,14 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = Android.composeVersion
-        kotlinCompilerVersion = Versions.kotlinVersion
     }
 
     packagingOptions {
         exclude("META-INF/LICENSE")
-//        exclude("META-INF/gradle/incremental.annotation.processors")
     }
 }
 
