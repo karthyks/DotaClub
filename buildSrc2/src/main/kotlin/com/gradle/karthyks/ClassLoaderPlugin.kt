@@ -11,7 +11,7 @@ class ClassLoaderPlugin : Plugin<Project> {
 object Versions {
     const val androidGradle = "4.2.0-beta06"
     const val kotlinVersion = "1.4.31"
-    const val jvmTarget = "1.8"
+    const val jvmTarget = "11"
     const val coroutines = "1.4.1"
 
     object Android {
