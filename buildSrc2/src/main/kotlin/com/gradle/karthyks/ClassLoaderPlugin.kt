@@ -31,7 +31,7 @@ object Versions {
         const val appCompat = "1.2.0"
         const val material = "1.2.1"
         const val lifeCycleRuntime = "2.3.0-beta01"
-        const val hilt = "2.33-beta"
+        const val hilt = "2.35.1"
     }
 
     object Test {
