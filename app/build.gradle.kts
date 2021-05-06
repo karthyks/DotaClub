@@ -80,3 +80,7 @@ dependencies {
     androidTestImplementation(Libraries.Test.AndroidX.jUnit)
     androidTestImplementation(Libraries.Test.AndroidX.espressoCore)
 }
+
+kapt {
+    correctErrorTypes = true
+}
